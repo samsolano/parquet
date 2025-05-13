@@ -12,6 +12,13 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
+  LayoutDashboard,
+  BriefcaseBusiness,
+  Send,
+  LoaderPinwheel,
+  Target,
+  Telescope,
+  Tent
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -20,6 +27,9 @@ import { NavUser } from "@/components/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
@@ -29,8 +39,8 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "sam",
+    email: "sam@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
@@ -52,17 +62,17 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Leads",
+      url: "/users",
+      icon: BriefcaseBusiness,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Buyer",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "Seller",
           url: "#",
         },
         {
@@ -72,70 +82,58 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Other",
       url: "#",
-      icon: Bot,
+      icon: LoaderPinwheel,
       items: [
         {
-          title: "Genesis",
+          title: "SOI",
           url: "#",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
+          title: "Past Clients",
           url: "#",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "Messaging",
       url: "#",
-      icon: BookOpen,
+      icon: Send,
       items: [
         {
-          title: "Introduction",
+          title: "Forms",
           url: "#",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
+          title: "Letters",
           url: "#",
         },
       ],
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: "General",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Team",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Billing",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Limits",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
   projects: [
     {
@@ -159,12 +157,55 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      {/* <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
+      </SidebarHeader> */}
+
       <SidebarContent>
+        
+        
+
+
+
+
+
+
+      <SidebarMenu>
+      <SidebarMenuButton asChild className="mt-2 ml-2">
+              <a href="#">
+                <LayoutDashboard />
+                <span>Dashboard</span>
+              </a>
+            </SidebarMenuButton>
+
+            {/* <SidebarMenuItem>
+              Dashboard
+
+            </SidebarMenuItem> */}
+      </SidebarMenu>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

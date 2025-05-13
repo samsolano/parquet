@@ -390,6 +390,7 @@ export function DataTable({
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
+  // Consider optimistic updates where it changes the index, then tries to update order in database
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
     if (active && over && active.id !== over.id) {
@@ -402,10 +403,12 @@ export function DataTable({
   }
 
   return (
+      // This is the container that everything is in
     <Tabs
       defaultValue="outline"
       className="w-full flex-col justify-start gap-6"
     >
+      {/* This is the top bar that contains the view selector and the columns/add section button */}
       <div className="flex items-center justify-between px-4 lg:px-6">
         <Label htmlFor="view-selector" className="sr-only">
           View
@@ -475,11 +478,19 @@ export function DataTable({
           </Button>
         </div>
       </div>
+
+
+
+
+
+
+
       <TabsContent
         value="outline"
         className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
       >
-        <div className="overflow-hidden rounded-lg border">
+        {/* This is starting at the table column titles down to the last item in the table */}
+        <div className="overflow-hidden rounded-lg">
           <DndContext
             collisionDetection={closestCenter}
             modifiers={[restrictToVerticalAxis]}
@@ -530,6 +541,10 @@ export function DataTable({
             </Table>
           </DndContext>
         </div>
+
+
+
+        
         <div className="flex items-center justify-between px-4">
           <div className="text-muted-foreground hidden flex-1 text-sm lg:flex">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
@@ -608,6 +623,12 @@ export function DataTable({
           </div>
         </div>
       </TabsContent>
+
+
+
+
+
+      
       <TabsContent
         value="past-performance"
         className="flex flex-col px-4 lg:px-6"
